@@ -26,7 +26,8 @@ var info = [
 runner(start)
 
 function runner(text) {
-    if (text) textarea.append(`<span style="color: #FF69B4;">` + text.charAt(i) + `</span>`)
+        if (text) textarea.append(`<span style="color: #a4ffee;">` + text.charAt(i) + `</span>`)
+
 
     i++;
     setTimeout(
