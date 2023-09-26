@@ -78,7 +78,7 @@ span.hidden {
 }
 
 .color-main {
-    color: #6857ff;
+    color: #7e6afd;
 }
 
 a:link {
@@ -90,7 +90,7 @@ a:visited {
 }
 
 a[title] {
-    border-bottom: 1px dashed #93a1a1;
+    border-bottom: 1px dashed #ffffff;
     text-decoration: none;
 }
 
@@ -101,11 +101,46 @@ a[title] {
     background: black;
 }
 
+
+.profile {
+    left: 50%;
+    top: 13%;
+    transform: translate(-50%, -50%);
+}
+
+.profile .pfp {
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid #ef5858;
+}
+
+.profile .badges {
+    position: absolute;
+    right: -30px;
+    bottom: -40px;
+    gap: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.profile .badges img {
+    width: 30px;
+    margin: 0 0px;
+}
+
+.profile .username {
+    position: absolute;
+    top: 145%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 .term {
     font-family: monospace;
     color: #ffffff;
     opacity: 0.8;
-    font-size: 1em;
+    font-size: 16px;
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: 10px;
@@ -116,7 +151,7 @@ a[title] {
     content: "_";
     opacity: 1;
     animation: cursor 1s infinite;
-    color: #ff5c57;
+    color: #ffffff;
 }
 
 @keyframes cursor {
