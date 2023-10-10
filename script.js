@@ -35,7 +35,6 @@ const output = [
     "debug: Account initialized!",
 ];
 
-// Function to display text with random delays
 function displayText(text, callback) {
     if (currentIndex < text.length) {
         textarea.append(`<span style="color: #c2b0d5;">${text.charAt(currentIndex)}</span>`);
@@ -48,7 +47,6 @@ function displayText(text, callback) {
     }
 }
 
-// Function to run scripts and prompts
 function runScriptAndPrompt() {
     if (dataIndex < scripts.length) {
         displayText(scripts[dataIndex], () => {
@@ -63,7 +61,6 @@ function runScriptAndPrompt() {
     }
 }
 
-// Function to display feedback
 function runFeedback() {
     let time = 1;
     const interval = setInterval(() => {
@@ -79,5 +76,4 @@ function runFeedback() {
     }, time);
 }
 
-// Start the process
 runScriptAndPrompt();
