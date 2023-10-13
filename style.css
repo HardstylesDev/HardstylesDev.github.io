@@ -150,6 +150,20 @@ a[title] {
     padding-left: 20px;
 }
 
+
+.repos {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 1em;
+}
+
 .term:after {
     content: "_";
     opacity: 1;
