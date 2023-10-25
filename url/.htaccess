@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteRule ^$ https://prnt.sc [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php
