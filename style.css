@@ -116,7 +116,7 @@ a[title] {
 
 .profile .badges {
     position: absolute;
-    right: -30px;
+    right: -5px;
     bottom: -40px;
     gap: 4px;
     display: flex;
