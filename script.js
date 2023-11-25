@@ -4,6 +4,8 @@ let currentIndex = 0;
 let dataIndex = 0;
 const startScript = './welcome.sh';
 
+$(".container").hide();
+
 const scripts = [
     './start.sh',
     'tom',
@@ -51,7 +53,9 @@ function runScriptAndPrompt() {
     if (dataIndex < scripts.length) {
         displayText(scripts[dataIndex], () => {
             currentIndex = 0;
-            textarea.append(prompts[dataIndex]);
+            if (prompts[dataIndex]) {
+                textarea.append(`<span style="color: #ffffff;">${prompts[dataIndex]}</span>`);
+            }
             dataIndex++;
             runScriptAndPrompt();
         });
@@ -65,13 +69,19 @@ function runFeedback() {
     let time = 1;
     const interval = setInterval(() => {
         if (currentIndex < output.length) {
-            textarea.append(`[${(currentIndex / 1000).toFixed(3)}] ${output[currentIndex]}<br>`);
+            textarea.append(`<span style="color: #ffffff;">[${(currentIndex / 1000).toFixed(3)}] ${output[currentIndex]}<br></span>`);
             currentIndex++;
         } else {
             clearInterval(interval);
             currentIndex = 0;
             textarea.append("<br>Initialising...<br>");
-            setTimeout(() => $(".load").fadeOut(2000), 1000);
+            setTimeout(() => {
+                $(".load").fadeOut(2000);
+                setTimeout(() => {
+                    $(".container").fadeIn(2000);
+                }, 2100);
+            }, 1000);
+
         }
     }, time);
 }
