@@ -78,15 +78,14 @@ body {
     align-items: center;
     flex-direction: column;
 }
-
-@media (max-width: 425px) {
+@media (max-width: 430px) {
     .container-header-body {
         width: 250px;
     }
 }
 
 
-@media (max-height: 1350px) {
+@media (max-height: 800px) {
     .container {
         all: unset;
 
