@@ -10,6 +10,27 @@ main {
     transform: translate(-50%, -50%);
 }
 
+
+@media only screen and (max-width: 600px ) {
+    main {
+        top: 60%;
+        padding: 0.5em;
+    }
+
+    .profile {
+        top: 10%;
+    }
+
+    .profile .username {
+        top: 120%;
+    }
+
+    .repos {
+        opacity: 0;
+    }
+}
+
+
 * {
     font-weight: normal !important;
     margin: 0;
