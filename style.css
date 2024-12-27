@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css?family=IBM Plex Sans Condensed");
 
 
@@ -5,7 +6,12 @@ body {
     margin: 0;
     padding: 0;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     background-color: black;
+
     font-family: monospace;
 }
 
@@ -70,7 +76,7 @@ body {
 }
 
 .container-header-body {
-    width: 425px;
+    width: 700px;
     height: max-content;
 
     display: flex;
@@ -78,14 +84,15 @@ body {
     align-items: center;
     flex-direction: column;
 }
-@media (max-width: 430px) {
+
+@media (max-width: 425px) {
     .container-header-body {
         width: 250px;
     }
 }
 
 
-@media (max-height: 800px) {
+@media (max-height: 700px) {
     .container {
         all: unset;
 
@@ -183,39 +190,33 @@ body {
 }
 
 
+.term {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    padding-left: 25px;
+}
+
+.term:after { content: "_"; opacity: 1; animation: cursor 1s infinite; color: white; }
+
+
+
 @keyframes cursor {
     0% {
-        opacity: 0;
+      opacity: 0;
     }
     40% {
-        opacity: 0;
+      opacity: 0;
     }
     50% {
-        opacity: 1;
+      opacity: 1;
     }
     90% {
-        opacity: 1;
+      opacity: 1;
     }
     100% {
-        opacity: 0;
+      opacity: 0;
     }
-}
-
-.term {
-    font-family: monospace;
-    color: #ffffff;
-    opacity: 0.8;
-    font-size: 16px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-top: 10px;
-    padding-left: 20px;
-}
-
-.term:after {
-    content: "_";
-    opacity: 1;
-    animation: cursor 1s infinite;
-    color: #ffffff;
-}
-
+  }

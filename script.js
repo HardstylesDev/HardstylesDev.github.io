@@ -14,6 +14,9 @@ const scripts = [
     'HardstylesDev',
     'arraylist',
     'hardstyles@proton.me\n\n',
+    'sudo apt update',
+    'sudo apt upgrade -y',
+    'sudo systemctl restart networking',
 ];
 
 const prompts = [
@@ -23,6 +26,7 @@ const prompts = [
     "Directory Created, time for your socials!\n\nPlease state your GitHub username, if none put 'N/A' > ",
     "Please state your Discord username, if none put ' N/A ' > ",
     "Please state your Email, if none put ' N/A ' > ",
+    "Running system updates and configurations...\n\n",
 ];
 
 const output = [
@@ -34,19 +38,43 @@ const output = [
     "debug: Setting GitHub account name 'HardstylesDev'",
     "debug: Setting Discord username 'hardstylesdev'",
     "debug: Setting email address 'hardstyles@proton.me'",
-    "debug: Account initialized!",
+    "debug: Updating package list...",
+    "debug: Installing package upgrades...",
+    "debug: Restarting networking services...",
+    "debug: System configuration complete!",
+    "debug: Account initialized successfully!",
+];
+
+const systemInfo = [
+    "Linux Kernel: 5.15.0-73-generic",
+    "OS: Ubuntu 20.04.6 LTS",
+    "CPU: AMD Ryzen 9 5900X @ 3.7GHz",
+    "Memory: 32GB DDR4 3600MHz",
+    "Disk: 2TB NVMe SSD",
+    "Uptime: 0 days, 0 hours, 1 minute",
+    "Active Users: 1",
 ];
 
 function displayText(text, callback) {
     if (currentIndex < text.length) {
         textarea.append(`<span style="color: #c2b0d5;">${text.charAt(currentIndex)}</span>`);
         currentIndex++;
-        setTimeout(() => displayText(text, callback), Math.floor(Math.random() * 80) + 55);
+        setTimeout(() => displayText(text, callback), Math.floor(Math.random() * 50) + 25); // Faster text display
     } else {
         currentIndex = 0;
         textarea.append("<br>");
         if (callback) callback();
     }
+}
+
+function displaySystemInfo(callback) {
+    textarea.append("<br><span style='color: #7e6afd;'>System Information:</span><br>");
+    systemInfo.forEach((info, idx) => {
+        setTimeout(() => {
+            textarea.append(`<span style="color: #cecece;">${info}</span><br>`);
+        }, idx * 25); 
+    });
+    setTimeout(callback, systemInfo.length * 25 + 500);
 }
 
 function runScriptAndPrompt() {
@@ -61,29 +89,31 @@ function runScriptAndPrompt() {
         });
     } else {
         currentIndex = 0;
-        setTimeout(() => runFeedback(), 650);
+        setTimeout(() => runFeedback(), 100);
     }
 }
 
 function runFeedback() {
-    let time = 1;
+    let feedbackIndex = 0;
+    textarea.append("<br><span style='color: #7e6afd;'>[System Logs]</span><br>");
     const interval = setInterval(() => {
-        if (currentIndex < output.length) {
-            textarea.append(`<span style="color: #ffffff;">[${(currentIndex / 1000).toFixed(3)}] ${output[currentIndex]}<br></span>`);
-            currentIndex++;
+        if (feedbackIndex < output.length) {
+            textarea.append(`<span style="color: #ffffff;">[${(feedbackIndex / 1000).toFixed(3)}] ${output[feedbackIndex]}<br></span>`);
+            feedbackIndex++;
         } else {
             clearInterval(interval);
             currentIndex = 0;
             textarea.append("<br>Initialising...<br>");
             setTimeout(() => {
-                $(".load").fadeOut(2000);
-                setTimeout(() => {
-                    $(".container").fadeIn(2000);
-                }, 2100);
-            }, 1000);
-
+                displaySystemInfo(() => {
+                    $(".load").fadeOut(500);
+                    setTimeout(() => {
+                        $(".container").fadeIn(500);
+                    }, 600);
+                });
+            }, 500);
         }
-    }, time);
+    }, 75);
 }
 
 runScriptAndPrompt();
